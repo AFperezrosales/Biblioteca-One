@@ -152,7 +152,7 @@ public class Biblioteca {
                 .build();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://gutendex.com/books?author_year_end=" + fechaDeMuerte))
-                .header("User-Agent", "Java HttpClient") // 👈 agregar esto
+                .header("User-Agent", "Java HttpClient") 
                 .GET()
                 .build();
 
@@ -164,7 +164,7 @@ public class Biblioteca {
             ResultadosDTO respuesta = convierteDato.obtenerDatos(json, ResultadosDTO.class);
 
             List<LibroRecordDTO> libros = respuesta.results();
-        //prueba que onda
+        
             for (LibroRecordDTO libro : libros) {
                 System.out.println("Título: " + libro.titulo());
                 for (AutorDTO autor : libro.autorList()) {
@@ -250,7 +250,7 @@ public class Biblioteca {
                     locura="pt";
                     break;
                 default:
-                    throw new RuntimeException("Esa opcion no esta vaya a lavarse el ocote");
+                    throw new RuntimeException("opcion no valida");
 
 
             }
@@ -260,7 +260,7 @@ public class Biblioteca {
                 .build();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://gutendex.com/books?languages=" + locura))
-                .header("User-Agent", "Java HttpClient") // 👈 agregar esto
+                .header("User-Agent", "Java HttpClient")
                 .GET()
                 .build();
         try {
